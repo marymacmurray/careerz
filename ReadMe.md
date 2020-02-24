@@ -15,7 +15,7 @@ Search developer jobs in your area.  Send your search results to yourself or a f
 
 ## api: 
 
-https://jobs.github.com/ 
+https://jobs.github.com/api
 
 
 ## mvp goals 
