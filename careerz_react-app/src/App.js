@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import axios from 'axios'
+import Jobsearch from './components/jobsearch'
+import Loader from './components/loader';
 
 const MUSE_KEY = process.env.REACT_APP_MUSE_KEY
 
@@ -7,7 +10,28 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      // jobslist:'' 
+      jobslist: ''
+    }
+  }
+
+  componentDidMount() {
+    this.fetchJobs()
+  }
+
+  fetchJobs = async () => {
+    try {
+      // const jobsarray = []
+      // this.state.ids.forEach(async ticker => { })
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      const jobsarray = await axios.get(`${proxyurl}https://jobs.github.com/positions.json?description=react&location=new+york`
+      )
+      // jobslist.push(jobs.data)
+      console.log(jobsarray)
+      this.setState({
+        jobslist: jobsarray
+      })
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -19,7 +43,7 @@ class App extends React.Component {
   //     const jobsarray = []
   //     this.state.ids.forEach(async ticker => {
   //       const jobs = await Axios.get(
-  //         `https://www.themuse.com/api/public/coaches?api_key=${MUSE_KEY}&offering=Interview%20Coaching&page=3&descending=true`
+  //         `https://www.themuse.com/api/public/coaches?api_key=${MUSE_KEY}&offering=Interview%20Coaching&page=1&descending=true`
   //       )
   //       jobslist.push(jobs.data)
   //       // console.log(jobslist)
@@ -55,13 +79,19 @@ class App extends React.Component {
   // }
 
   render() {
+    // console.log(this.state.jobslist.data)
     return (
       <div className="App">
         <header className="App-header">
           <h1>Careerz</h1>
         </header>
         <main>
-          <h2>Components go here!</h2>
+          {
+            this.state.jobslist.data ? <Jobsearch
+              jobslist={this.state.jobslist.data}
+
+            /> : <Loader />
+          }
         </main>
 
         {/* <SearchContainer jobs={this.state.jobs} />
