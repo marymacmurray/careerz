@@ -1,16 +1,17 @@
 # [Careerz](http://my-project-title.surge.sh/)
 
+![Mandalorians 4ever](https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif)
 
 ## Description
 Search developer jobs in your area.  Send your search results to yourself or a friend via email.
 
 ## Wireframe
 
-![wireframe](planning/careerz-flowmap.png)
+![wireframe](planning/careerz_wireframe.png)
 
 
 ## component hierarchy 
-![component tree](planning/component-tree.jpg)
+![component tree](planning/careerz-component-map.jpg)
 
 ## api: 
 
