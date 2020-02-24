@@ -36,8 +36,8 @@ Procedural Requirements
 
 ## post-mvp goals:
 
-* Try out this component library: (https://github.com/OfficeDev/office-ui-fabric-react).
-* Could have: Career coach search component using TheMuse API. (https://www.themuse.com/developers/api/v2 )
+* Try out this component library: https://github.com/OfficeDev/office-ui-fabric-react.
+* Could have: Career coach search component using TheMuse API. https://www.themuse.com/developers/api/v2 
 
 
 
