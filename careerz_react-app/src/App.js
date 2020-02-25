@@ -20,16 +20,13 @@ class App extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.fetchJobs()
-  //   console.log(this.props)
-  // }
-
   fetchJobs = async (inputValue) => {
     try {
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
       const jobsarray = await axios.get(`${proxyurl}https://jobs.github.com/positions.json?description=${inputValue}`
       )
+
+      //adding the showmore value to state for each cycle of the .map.
       return jobsarray.data.map(job => ({
         ...job,
         showmore: false
@@ -100,7 +97,7 @@ class App extends React.Component {
                   jobslist={this.state.jobslist}
                   onChange={this.handleChange}
                   onSubmit={this.handleSubmit}
-                  value={this.state.searchQuery}
+                  //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
                   toggleShowmore={this.toggleShowmore} />}
               />
           }

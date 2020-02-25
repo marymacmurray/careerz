@@ -2,7 +2,7 @@ import React from 'react'
 import Jobdisplay from './jobdisplay'
 
 function Jobsearch(props) {
-  console.log(props.jobslist)
+  // console.log(props.jobslist)
   const jobslist = props.jobslist;
   const listJobs = jobslist.map((job, index) =>
     <Jobdisplay
@@ -16,6 +16,7 @@ function Jobsearch(props) {
       url={job.url}
       apply={job.how_to_apply}
       description={job.description}
+      //need an index to make each of the functions connected to the buttons individual and specific to that div.
       index={index}
       toggleShowmore={props.toggleShowmore}
       //here we create a prop showmore to be passed to the jobsdisplay render.
