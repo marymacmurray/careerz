@@ -15,7 +15,7 @@ function Jobdisplay(props) {
         <img src={props.logo} alt="logo" height="50 vh" width="100 vh" />
       </div>
       <div>
-        <p>what dis job: </p>
+        <p>job description: </p>
         <p dangerouslySetInnerHTML={{ __html: props.description }} />
       </div>
     </li >

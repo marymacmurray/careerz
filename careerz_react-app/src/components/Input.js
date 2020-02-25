@@ -5,7 +5,7 @@ function Input(props) {
   return (
     <div>
       <form>
-        <input
+        <input className="input"
           type="text"
           placeholder="keyword search"
           value={props.value}
@@ -13,7 +13,7 @@ function Input(props) {
         />
         <button
           type="submit"
-          onClick={props.handleSubmit}>Submit</button>
+          onClick={props.handleSubmit}>git</button>
       </form>
 
     </div>

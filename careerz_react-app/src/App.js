@@ -4,7 +4,9 @@ import axios from 'axios'
 import Jobsearch from './components/jobsearch'
 import Loader from './components/loader';
 import Input from './components/Input'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, withRouter } from 'react-router-dom'
+
+//withRouter permits the use of router props pretty much anywhere. WOWEE!
 
 const MUSE_KEY = process.env.REACT_APP_MUSE_KEY
 
@@ -12,14 +14,16 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      jobslist: '',
-      value: ''
+      jobslist: [],
+      value: '',
+      isLoading: true
     }
   }
 
-  // componentDidMount() {
-  //   this.fetchJobs()
-  // }
+  componentDidMount() {
+    // this.fetchJobs()
+    // console.log(this.props)
+  }
 
   fetchJobs = async (inputValue) => {
     try {
@@ -44,10 +48,13 @@ class App extends React.Component {
     console.log('inside App Submit')
     event.preventDefault()
     const jobsarray = await this.fetchJobs(this.state.value)
+    let search = this.state.value
 
     this.setState({
-      jobslist: jobsarray
-    })
+      jobslist: jobsarray.data,
+      isLoading: false,
+      value: ''
+    }, () => this.props.history.push(`/search/${search}`))
   }
 
   render() {
@@ -68,25 +75,27 @@ class App extends React.Component {
 
         <header className="App-header">
           <h1>devJobz</h1>
+          {/* <h3>find a dev job near you</h3> */}
         </header>
         <main>
-          {/* <Route exact path="/" component={Loader} /> */}
-          {/* <Route path="/search" component={Jobsearch} /> */}
-          {/* <Route path="/contact" component={Contact} /> */}
           <Input
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit} />
 
+          {/* <Route exact path="/" component={Loader} /> */}
+          {/* <Route path="/contact" component={Contact} /> */}
           {
-            this.state.jobslist.data ?
-
-              <Jobsearch
-                jobslist={this.state.jobslist.data}
-                onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                value={this.state.searchQuery} />
-              : <Loader />
+            this.state.isLoading ?
+              <Loader />
+              : <Route path={`/search/:search`} render={(props) =>
+                <Jobsearch
+                  jobslist={this.state.jobslist}
+                  onChange={this.handleChange}
+                  onSubmit={this.handleSubmit}
+                  value={this.state.searchQuery} />}
+              />
           }
+
         </main>
         <footer className="app-footer">
           <p>© 🧜‍♀️ Mary Mac</p>
@@ -97,4 +106,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default withRouter(App);
