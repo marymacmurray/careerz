@@ -4,6 +4,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 const override = css`
   display: block;
+  align-self: center;
   margin: 0 auto;
   border-color: red;
 `;
@@ -20,7 +21,7 @@ class Loader extends React.Component {
     return (
       <div className="sweet-loading">
         <PacmanLoader
-          css={override}
+          // css={override}
           size={150}
           //size={"150px"} this also works
           color={"pink"}

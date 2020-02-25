@@ -1,5 +1,4 @@
 import React from 'react'
-import App from '../App'
 import Jobdisplay from './jobdisplay'
 
 function Jobsearch(props) {

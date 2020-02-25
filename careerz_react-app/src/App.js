@@ -4,6 +4,7 @@ import axios from 'axios'
 import Jobsearch from './components/jobsearch'
 import Loader from './components/loader';
 import Input from './components/Input'
+import { Link, Route } from 'react-router-dom'
 
 const MUSE_KEY = process.env.REACT_APP_MUSE_KEY
 
@@ -53,10 +54,25 @@ class App extends React.Component {
     // console.log(this.state.jobslist.data)
     return (
       <div className="App">
+        <nav>
+          <li>
+            <Link to="/">home</Link>
+          </li>
+          <li>
+            <Link to="/search">search jobs</Link>
+          </li>
+          <li>
+            <Link to="/contact">contact</Link>
+          </li>
+        </nav>
+
         <header className="App-header">
           <h1>devJobz</h1>
         </header>
         <main>
+          {/* <Route exact path="/" component={Loader} /> */}
+          {/* <Route path="/search" component={Jobsearch} /> */}
+          {/* <Route path="/contact" component={Contact} /> */}
           <Input
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit} />
@@ -72,19 +88,9 @@ class App extends React.Component {
               : <Loader />
           }
         </main>
-
-        {/* <SearchContainer jobs={this.state.jobs} />
-        <Search
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-          value={this.state.searchQuery}
-          name="searchQuery"
-        />
-        <Route
-          path="/detail/:job_id"
-          render={(props) => <Job Detail={this.state.jobs}{...props} />}
-        //this is just an anonymous function.  render accepts a function that will return a component.  using the spread operator gives me back access to props.
-        /> */}
+        <footer className="app-footer">
+          <p>© 🧜‍♀️ Mary Mac</p>
+        </footer>
       </div>
     );
   }
