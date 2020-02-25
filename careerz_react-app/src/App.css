@@ -21,6 +21,7 @@ button{
   border: solid rgb(97, 94, 94);
   border-radius: 25px;
   background-color: #129bbd9a;
+  margin-top: 10px auto;
 }
 
 ul{

@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Jobdisplay(props) {
-  console.log(props)
+  // console.log(props)
 
   return (
     <li className="job">
@@ -14,22 +14,19 @@ function Jobdisplay(props) {
       <div>
         <img src={props.logo} alt="logo" height="50 vh" width="100 vh" />
       </div>
-      <div>
+
+      {/* conditional rendering of button for each 'cycle' of the .map of jobslist.  Each button has to be independent so the source of the showmore prop must be created in jobsearch.  See that component for more notes. */}
+      <button
+        onClick={() => props.toggleShowmore(props.index)}
+      >{props.showmore ? 'show less' : 'show more'}</button>
+      {props.showmore ? <div>
         <p>job description: </p>
         <p dangerouslySetInnerHTML={{ __html: props.description }} />
       </div>
+        : null}
+
     </li >
   )
 }
 
 export default Jobdisplay
-
-// key={job.id}
-//       logo={job.company_logo}
-//       company_url={job.company_url}
-//       type={job.type}
-//       location={job.location}
-//       title={job.title}
-//       url={job.url}
-//       apply={job.how_to_apply}
-//       description={job.description}
