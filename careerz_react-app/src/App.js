@@ -20,10 +20,10 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // this.fetchJobs()
-    // console.log(this.props)
-  }
+  // componentDidMount() {
+  //   this.fetchJobs()
+  //   console.log(this.props)
+  // }
 
   fetchJobs = async (inputValue) => {
     try {
@@ -81,8 +81,6 @@ class App extends React.Component {
           <Input
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit} />
-
-          {/* <Route exact path="/" component={Loader} /> */}
           {/* <Route path="/contact" component={Contact} /> */}
           {
             this.state.isLoading ?
