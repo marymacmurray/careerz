@@ -1,5 +1,4 @@
 import React from 'react'
-import App from '../App'
 
 function Input(props) {
   // console.log(props)

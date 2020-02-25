@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
 .App {
+  /* align-content: space-between; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
+  font-family: 'Roboto Mono', ;
+
 }
 
 .App-logo {
@@ -12,13 +20,17 @@ ul{
   text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav{
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: space-around;
 }
 
 .App-header {
+  /* width: 100%; */
   background-color: #129bbd9a;
   min-height: 20vh;
   display: flex;
@@ -28,16 +40,30 @@ ul{
   font-size: calc(10px + 2vmin);
   color: white;
 }
+main{
+  min-height: 60vh;
+  align-self: center;
+}
+
+.sweet-loading{
+margin: 10vh auto;
+}
+
+.job{
+  /* align-content: space-around; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: black;
+  box-shadow: rgba(0, 0, 0, 0.502);
+}
+footer{
+  /* align-self: flex-end; */
+  text-align: center;
+  margin-top: 10vh;
+}
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
