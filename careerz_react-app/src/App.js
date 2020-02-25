@@ -30,11 +30,21 @@ class App extends React.Component {
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
       const jobsarray = await axios.get(`${proxyurl}https://jobs.github.com/positions.json?description=${inputValue}`
       )
-      return jobsarray
+      return jobsarray.data.map(job => ({
+        ...job,
+        showmore: false
+      }))
     }
     catch (error) {
       console.error(error)
     }
+  }
+
+  toggleShowmore = (index) => {
+    this.setState(state => {
+      state.jobslist[index].showmore = !state.jobslist[index].showmore
+      return state
+    })
   }
 
   handleChange = (event) => {
@@ -51,7 +61,7 @@ class App extends React.Component {
     let search = this.state.value
 
     this.setState({
-      jobslist: jobsarray.data,
+      jobslist: jobsarray,
       isLoading: false,
       value: ''
     }, () => this.props.history.push(`/search/${search}`))
@@ -90,7 +100,8 @@ class App extends React.Component {
                   jobslist={this.state.jobslist}
                   onChange={this.handleChange}
                   onSubmit={this.handleSubmit}
-                  value={this.state.searchQuery} />}
+                  value={this.state.searchQuery}
+                  toggleShowmore={this.toggleShowmore} />}
               />
           }
 

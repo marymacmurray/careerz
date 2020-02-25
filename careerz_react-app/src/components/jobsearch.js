@@ -4,7 +4,7 @@ import Jobdisplay from './jobdisplay'
 function Jobsearch(props) {
   console.log(props.jobslist)
   const jobslist = props.jobslist;
-  const listJobs = jobslist.map((job) =>
+  const listJobs = jobslist.map((job, index) =>
     <Jobdisplay
       key={job.id}
       logo={job.company_logo}
@@ -16,7 +16,10 @@ function Jobsearch(props) {
       url={job.url}
       apply={job.how_to_apply}
       description={job.description}
-
+      index={index}
+      toggleShowmore={props.toggleShowmore}
+      //here we create a prop showmore to be passed to the jobsdisplay render.
+      showmore={job.showmore}
     />
   )
   return (
