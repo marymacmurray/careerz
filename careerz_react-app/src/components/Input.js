@@ -2,7 +2,7 @@ import React from 'react'
 import App from '../App'
 
 function Input(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <div>
       <form>
@@ -12,10 +12,9 @@ function Input(props) {
           value={props.value}
           onChange={props.handleChange}
         />
-        <input
+        <button
           type="submit"
-          onClick={props.handleSubmit}
-        />
+          onClick={props.handleSubmit}>Submit</button>
       </form>
 
     </div>
