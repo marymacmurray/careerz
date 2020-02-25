@@ -6,17 +6,24 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  font-family: 'Roboto Mono', ;
+  font-family: 'Roboto Mono';
 
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a{
+  text-decoration: none;
+}
+.input{
+border:solid rgb(97, 94, 94);
+border-radius: 25px;
+text-align: center;
+}
+button{
+  border: solid rgb(97, 94, 94);
+  border-radius: 25px;
+  background-color: #129bbd9a;
 }
 
 ul{
-  list-style: none;
   text-align: left;
 }
 
@@ -50,13 +57,15 @@ margin: 10vh auto;
 }
 
 .job{
-  /* align-content: space-around; */
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  border: black;
-  box-shadow: rgba(0, 0, 0, 0.502);
+  justify-content: space-around;
+  border:solid grey;
+  box-shadow:10px 10px 5px grey;
+  margin: 5vh auto;
+  padding:2vh;
 }
 footer{
   /* align-self: flex-end; */
