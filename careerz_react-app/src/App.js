@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
+import Home from './components/Home'
 import axios from 'axios'
 import Jobsearch from './components/jobsearch'
 import Loader from './components/loader';
 import Input from './components/Input'
-import Careercoach from './components/careercoach'
-import { Link, Route, withRouter } from 'react-router-dom'
+import { Link, Route, withRouter, Switch } from 'react-router-dom'
 
 //withRouter permits the use of router props pretty much anywhere. WOWEE!
-
-const MUSE_KEY = process.env.REACT_APP_MUSE_KEY
 
 class App extends React.Component {
   constructor() {
@@ -66,7 +64,7 @@ class App extends React.Component {
       jobslist: jobsarray,
       isLoading: false,
       value: ''
-    }, () => this.props.history.push(`/search/${search}`))
+    }, () => this.props.history.push(`/search/${search}`))  //to be able to send router props with my state props.
   }
 
   render() {
@@ -85,16 +83,18 @@ class App extends React.Component {
             <Link to="/coachsearch">find career coach</Link>
           </li>
         </nav>
-
         <header className="App-header">
           <h1>devJobz</h1>
-          {/* <h3>find a dev job near you</h3> */}
+          <h3>find a dev job near you</h3>
         </header>
+
         <main>
-          <Input
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit} />
-          <Route path="/coachsearch" component={Careercoach} />
+          <Route path={`/search`} render={(props) =>
+            <Input
+              {...props}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit} />} />
+
           {
             this.state.isLoading ?
               <Loader />
@@ -109,9 +109,11 @@ class App extends React.Component {
           }
 
         </main>
+
         <footer className="app-footer">
           <p>© 🧜‍♀️ Mary Mac</p>
         </footer>
+
       </div>
     );
   }

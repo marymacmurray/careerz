@@ -1,8 +1,8 @@
-# [Careerz](http://my-project-title.surge.sh/)
+# [devJobz](http://my-project-title.surge.sh/)
 
 ![Mandalorians 4ever](https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif)
 
-## Description
+## MVP 
 Search developer jobs in your area.  Send your search results to yourself or a friend via email.
 
 ## Wireframe
@@ -10,15 +10,33 @@ Search developer jobs in your area.  Send your search results to yourself or a f
 ![wireframe](planning/careerz_wireframe.png)
 
 
-## component hierarchy 
-![component tree](planning/careerz-component-map.jpg)
+## Component Hierarchy 
+![component sketch](planning/careerz-component-map.jpg)
+```
+src/
+|__ App.css
+|__ index.css
+|__ index.js
+|__ App.js  (axios call, state: jobslist: [], value: '', isLoading: true)
+|__ components/
+      |__ loader.js (cool loader dude: https://www.npmjs.com/package/react-spinners)
+      |__ Input.js (reusable form function)
+      |__ jobsearch.js (.map of axios data)
+      |__ jobdisplay.js (display of mapped data and 'showmore' buttons) 
+|__ images/
+    |__ babyyoda.png
+    |__ logo.png
+```
 
-## api: 
+#### Data
 
-https://jobs.github.com/api
+|    API     | Quality Docs? | Website       | Sample Query                            |
+| :--------: | :-----------: | :------------ | :-------------------------------------- |
+| Github |      yes      | https://jobs.github.com/api | https://jobs.github.com/positions.json?description=react&location=new+york |
 
 
-## mvp goals 
+
+## Goals 
 MUST HAVE: Search developer jobs in your area.
 Should have: Email modal to send results to yourself or a friend.
 
@@ -34,15 +52,14 @@ Procedural Requirements
 * Have a well-developed README.md file explaining technologies used, approaches taken, a link to my live site, relevant instructions for viewers, and any unsolved problems.
 
 
-## post-mvp goals:
+## POST-MVP Goals:
 
-* Try out this component library: https://github.com/OfficeDev/office-ui-fabric-react.
-* Could have: Career coach search component using TheMuse API. https://www.themuse.com/developers/api/v2 
+* Could have: Career coach search component using TheMuse API. https://www.themuse.com/developers/api/v2* 
+* Try out this component library: https://github.com/OfficeDev/office-ui-fabric-react. 
 
 
 
-## swot analysis 
-
+## SWOT Analysis 
 
 | Strengths  | Weaknesses |
 | --- | --- |
@@ -53,17 +70,17 @@ Procedural Requirements
 | using component library for styling | component lib research time/effort  |
 
 
-## technologies used
-* react
-* vanilla javascript
-* axios
-* html5
-* css grid and flexbox
+## Technologies Used
+* React JS
+* Vanilla Javascript
+* Axios
+* Html5
+* CSS flexbox
 
 
-#### relevant instructions for viewers
+#### Relevant instructions for viewers 
 
-#### wip
-* refactor and examine for recursion opps
-* UX
+#### WIP
+* Refactoring main button/input/props components to be reusable for both the Coachsearch components and Jobsearch components.
+* Review by UXD professionals.
 

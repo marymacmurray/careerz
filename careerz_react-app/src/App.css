@@ -18,6 +18,9 @@ main{
 border:solid rgb(97, 94, 94);
 border-radius: 25px;
 text-align: center;
+/* height: 6vh;
+width: 24vh; */
+font-size: 15px;
 }
 button{
   border: solid rgb(97, 94, 94);
@@ -25,6 +28,9 @@ button{
   background-color: #129bbd9a;
   margin-top: 2vh;
   margin-left: 1vw;
+  /* height: 7vh;
+  width: 8vw; */
+  font-size: 15px;
 }
 
 ul{
@@ -64,6 +70,7 @@ main{
 
 .sweet-loading{
 margin: 10vh auto;
+width: 50%;
 
 }
 
@@ -89,9 +96,11 @@ a:hover{
 
 .job-company{
 width:25%;
+text-align: center;
 }
 .job-logo{
 width:25%;
+text-align: center;
 }
 
 
