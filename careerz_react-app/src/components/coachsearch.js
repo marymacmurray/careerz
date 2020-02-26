@@ -1,11 +1,11 @@
 import React from 'react'
-import Jobdisplay from './jobdisplay'
+import Coachdisplay from './coachdisplay'
 
-function Jobsearch(props) {
+function Coachsearch(props) {
   // console.log(props.jobslist)
   const jobslist = props.jobslist;
   const listJobs = jobslist.map((job, index) =>
-    <Jobdisplay
+    <Coachdisplay
       key={job.id}
       logo={job.company_logo}
       company={job.company}
@@ -30,4 +30,4 @@ function Jobsearch(props) {
   );
 }
 
-export default Jobsearch
+export default Coachsearch

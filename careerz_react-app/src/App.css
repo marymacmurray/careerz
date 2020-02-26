@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
 .App {
-  /* align-content: space-between; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,6 +11,9 @@
 a{
   text-decoration: none;
 }
+main{
+  margin-top: 3vh;
+}
 .input{
 border:solid rgb(97, 94, 94);
 border-radius: 25px;
@@ -21,20 +23,27 @@ button{
   border: solid rgb(97, 94, 94);
   border-radius: 25px;
   background-color: #129bbd9a;
-  margin-top: 10px auto;
+  margin-top: 2vh;
+  margin-left: 1vw;
 }
 
 ul{
   text-align: left;
 }
+.logo{
+  align-self: flex-start;
 
+}
 nav{
   display: flex;
   list-style: none;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-end;
-  justify-content: space-around;
+  justify-content: flex-end;
+}
+.nav-li{
+  margin: 3vh 3vw;
+  
 }
 
 .App-header {
@@ -55,6 +64,7 @@ main{
 
 .sweet-loading{
 margin: 10vh auto;
+
 }
 
 .job{
@@ -62,12 +72,29 @@ margin: 10vh auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border:solid grey;
   box-shadow:10px 10px 5px grey;
   margin: 5vh auto;
   padding:2vh;
 }
+
+.job-url{
+width: 30%;
+}
+a:hover{
+    color: hotpink;
+    text-decoration: underline;
+}
+
+.job-company{
+width:25%;
+}
+.job-logo{
+width:25%;
+}
+
+
 footer{
   /* align-self: flex-end; */
   text-align: center;
