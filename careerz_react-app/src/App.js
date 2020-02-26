@@ -37,6 +37,7 @@ class App extends React.Component {
   }
 
   toggleShowmore = (index) => {
+    //setting state for each button to be it's own button.  if you don't do this, the buttons won't be unique.
     this.setState(state => {
       state.jobslist[index].showmore = !state.jobslist[index].showmore
       return state
@@ -98,20 +99,26 @@ class App extends React.Component {
             <Input
               {...props}
               handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit} />} />
+              handleSubmit={this.handleSubmit} />}
+          />
 
           {
             this.state.isLoading &&
-            <Loader />}
-          <Route path={`/search/:search`} render={(props) =>
-            <Jobsearch
-              isLoading={this.state.isLoading}
-              jobslist={this.state.jobslist}
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
-              toggleShowmore={this.toggleShowmore} />}
+            <Loader />
+          }
+          <Route path={`/search/:search`}
+            render={(props) =>
+              <Jobsearch
+                isLoading={this.state.isLoading}
+                jobslist={this.state.jobslist}
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
+                toggleShowmore={this.toggleShowmore}
+              />
+            }
           />
+          {/* <Route path={`/*`} component={NotFound} /> */}
 
         </main>
 
