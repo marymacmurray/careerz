@@ -46,9 +46,11 @@ class Home extends React.Component {
             /> */}
           </Switch>
         </main>
+
         <footer className="app-footer">
           <p>© 🧜‍♀️ Mary Mac</p>
         </footer>
+
       </div>
     );
   }
