@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
+
 .App {
   display: flex;
   flex-direction: column;
@@ -8,12 +9,17 @@
   font-family: 'Roboto Mono';
 
 }
+
 a{
   text-decoration: none;
 }
+
 main{
   margin-top: 3vh;
+  min-height: 60vh;
+  align-self: center;
 }
+
 .input{
 border:solid rgb(97, 94, 94);
 border-radius: 25px;
@@ -22,6 +28,7 @@ text-align: center;
 width: 24vh; */
 font-size: 15px;
 }
+
 button{
   border: solid rgb(97, 94, 94);
   border-radius: 25px;
@@ -34,12 +41,15 @@ button{
 }
 
 ul{
-  text-align: left;
+padding: 0;
+
 }
+
 .logo{
   align-self: flex-start;
 
 }
+
 nav{
   display: flex;
   list-style: none;
@@ -47,6 +57,7 @@ nav{
   flex-wrap: wrap;
   justify-content: flex-end;
 }
+
 .nav-li{
   margin: 3vh 3vw;
   
@@ -63,14 +74,10 @@ nav{
   font-size: calc(10px + 2vmin);
   color: white;
 }
-main{
-  min-height: 60vh;
-  align-self: center;
-}
 
 .sweet-loading{
 margin: 10vh auto;
-width: 50%;
+/* width: 50%; */
 
 }
 
@@ -82,13 +89,15 @@ width: 50%;
   justify-content: space-evenly;
   border:solid grey;
   box-shadow:10px 10px 5px grey;
-  margin: 5vh auto;
+  margin: 3vh;
   padding:2vh;
 }
 
 .job-url{
 width: 30%;
+padding: 2px;
 }
+
 a:hover{
     color: hotpink;
     text-decoration: underline;
@@ -97,12 +106,70 @@ a:hover{
 .job-company{
 width:25%;
 text-align: center;
+padding: 2px;
 }
 .job-logo{
 width:25%;
 text-align: center;
+padding: 2px;
 }
 
+@media (max-width: 700px) {      
+      .job-url{
+        width: 30%;
+        margin: 0 2vh;
+        padding: 3px;
+        padding: 2px;
+        min-width: 33.3%; 
+        }
+    
+      .job-company{
+        width:25%;
+        text-align: center;
+        margin: 0 1vw;
+        padding: 2px;
+        min-width: 33.3%; 
+        }
+    
+      .job-logo{
+        width:25%;
+        text-align: center;
+        margin: 0 1vw;
+        padding: 2px;
+        min-width: 33.3%; 
+        }
+    
+}
+
+@media screen and (max-width: 480px) {
+  .sweet-loading{
+background-color: greenyellow;
+  }
+
+  .job-url{
+    width: 30%;
+    margin: 0 2vh;
+    padding: 3px;
+    min-width: 40%; 
+    }
+
+  .job-company{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 40%; 
+    }
+
+  .job-logo{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 40%; 
+    }
+
+}
 
 footer{
   /* align-self: flex-end; */
