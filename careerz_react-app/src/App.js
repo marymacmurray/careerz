@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       jobslist: [],
       value: '',
-      isLoading: true
+      isLoading: false
     }
   }
 
@@ -57,6 +57,10 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     console.log('inside App Submit')
     event.preventDefault()
+    this.setState({
+      isLoading: true,
+      jobslist: [],
+    })
     const jobsarray = await this.fetchJobs(this.state.value)
     let search = this.state.value
 
@@ -64,7 +68,9 @@ class App extends React.Component {
       jobslist: jobsarray,
       isLoading: false,
       value: ''
-    }, () => this.props.history.push(`/search/${search}`))  //to be able to send router props with my state props.
+    })
+    //to be able to send router props with my state props.
+    this.props.history.push(`/search/${search}`)
   }
 
   render() {
@@ -89,6 +95,9 @@ class App extends React.Component {
         </header>
 
         <main>
+          <Route path={'/something'}>
+            <h1>Hello</h1>
+          </Route>
           <Route path={`/search`} render={(props) =>
             <Input
               {...props}
@@ -96,17 +105,18 @@ class App extends React.Component {
               handleSubmit={this.handleSubmit} />} />
 
           {
-            this.state.isLoading ?
-              <Loader />
-              : <Route path={`/search/:search`} render={(props) =>
-                <Jobsearch
-                  jobslist={this.state.jobslist}
-                  onChange={this.handleChange}
-                  onSubmit={this.handleSubmit}
-                  //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
-                  toggleShowmore={this.toggleShowmore} />}
-              />
-          }
+            this.state.isLoading &&
+            <Loader />}
+          <Route path={`/search/:search`} render={(props) =>
+            <Jobsearch
+              isLoading={this.state.isLoading}
+              jobslist={this.state.jobslist}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
+              toggleShowmore={this.toggleShowmore} />}
+          />
+
 
         </main>
 

@@ -115,36 +115,33 @@ padding: 2px;
 }
 
 @media (max-width: 700px) {      
-      .job-url{
-        width: 30%;
-        margin: 0 2vh;
-        padding: 3px;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-url{
+    width: 30%;
+    margin: 0 2vh;
+    padding: 3px;
+    padding: 2px;
+    min-width: 33.3%; 
+  }
     
-      .job-company{
-        width:25%;
-        text-align: center;
-        margin: 0 1vw;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-company{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 33.3%; 
+    }
     
-      .job-logo{
-        width:25%;
-        text-align: center;
-        margin: 0 1vw;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-logo{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 33.3%; 
+    }
     
 }
 
 @media screen and (max-width: 480px) {
-  .sweet-loading{
-background-color: greenyellow;
-  }
 
   .job-url{
     width: 30%;
