@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loader from './loader';
 import Coachinput from './coachinput'
 import Coachsearch from './coachsearch'
-import { Link, Route, withRouter } from 'react-router-dom'
+import { Switch, Link, Route, withRouter } from 'react-router-dom'
 
 //withRouter permits the use of router props pretty much anywhere. WOWEE!
 
@@ -19,9 +19,8 @@ class Careercoach extends React.Component {
     }
   }
 
-  fetchJobs = async (inputValue) => {
+  fetchCoaches = async (inputValue) => {
     try {
-      const proxyurl = "https://cors-anywhere.herokuapp.com/";
       const coachesarray = await axios.get(`https://www.themuse.com/api/public/coaches?api_key=1c01f7eb5e9b6fb6d5db1fa9a596c3fcca9a1a9dd821b17024696814f2cbc342&page=3`)
       //adding the showmore value to state for each cycle of the .map.
       console.log(coachesarray.data)
@@ -52,7 +51,7 @@ class Careercoach extends React.Component {
   handleSubmit = async (event) => {
     console.log('inside careercoach Submit')
     event.preventDefault()
-    const coachesarray = await this.fetchJobs(this.state.value)
+    const coachesarray = await this.fetchCoaches(this.state.value)
     let search = this.state.value
 
     this.setState({
@@ -80,17 +79,18 @@ class Careercoach extends React.Component {
 
         <header className="App-header">
           <h1>devJobz</h1>
-          {/* <h3>find a dev job near you</h3> */}
+          <h3>find a dev job near you</h3>
         </header>
-        <main>
+        < main >
           <Coachinput
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit} />
-          {/* <Route path="/contact" component={Contact} /> */}
+          {/* <Route path="/contact" component={Contact} />*/}
           {
             this.state.isLoading ?
               <Loader />
-              : <Route path={`/coachsearch/:coachsearch`} render={(props) =>
+              :
+              <Route path={`/coachsearch/:coachsearch`} render={(props) =>
                 <Coachsearch
                   coacheslist={this.state.coacheslist}
                   onChange={this.handleChange}
@@ -100,11 +100,11 @@ class Careercoach extends React.Component {
               />
           }
 
-        </main>
+        </main >
         <footer className="app-footer">
           <p>© 🧜‍♀️ Mary Mac</p>
         </footer>
-      </div>
+      </div >
     );
   }
 }
