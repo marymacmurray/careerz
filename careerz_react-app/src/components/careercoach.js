@@ -1,38 +1,31 @@
 import React from 'react';
-import './App.css';
 import axios from 'axios'
-import Jobsearch from './components/jobsearch'
-import Loader from './components/loader';
-import Input from './components/Input'
-import Careercoach from './components/careercoach'
+import Loader from './loader';
+import Coachinput from './coachinput'
+import Coachsearch from './coachsearch'
 import { Link, Route, withRouter } from 'react-router-dom'
 
 //withRouter permits the use of router props pretty much anywhere. WOWEE!
 
 const MUSE_KEY = process.env.REACT_APP_MUSE_KEY
 
-class App extends React.Component {
+class Careercoach extends React.Component {
   constructor() {
     super()
     this.state = {
-      jobslist: [],
+      coacheslist: [],
       value: '',
       isLoading: true
     }
   }
 
-  componentDidMount() {
-    alert(`Welcome to devJobz!  Search for a dev job by language, location, keyword, anything you desire!`)
-  }
-
   fetchJobs = async (inputValue) => {
     try {
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
-      const jobsarray = await axios.get(`${proxyurl}https://jobs.github.com/positions.json?description=${inputValue}`
-      )
-
+      const coachesarray = await axios.get(`https://www.themuse.com/api/public/coaches?api_key=1c01f7eb5e9b6fb6d5db1fa9a596c3fcca9a1a9dd821b17024696814f2cbc342&page=3`)
       //adding the showmore value to state for each cycle of the .map.
-      return jobsarray.data.map(job => ({
+      console.log(coachesarray.data)
+      return coachesarray.data.results.map(job => ({
         ...job,
         showmore: false
       }))
@@ -44,37 +37,36 @@ class App extends React.Component {
 
   toggleShowmore = (index) => {
     this.setState(state => {
-      state.jobslist[index].showmore = !state.jobslist[index].showmore
+      state.coacheslist[index].showmore = !state.coacheslist[index].showmore
       return state
     })
   }
 
   handleChange = (event) => {
-    console.log('inside App handleChange')
+    console.log('inside careercoach handleChange')
     this.setState({
       value: event.target.value
     });
   }
 
   handleSubmit = async (event) => {
-    console.log('inside App Submit')
+    console.log('inside careercoach Submit')
     event.preventDefault()
-    const jobsarray = await this.fetchJobs(this.state.value)
+    const coachesarray = await this.fetchJobs(this.state.value)
     let search = this.state.value
 
     this.setState({
-      jobslist: jobsarray,
+      coacheslist: coachesarray,
       isLoading: false,
       value: ''
-    }, () => this.props.history.push(`/search/${search}`))
+    }, () => this.props.history.push(`/coachsearch/${search}`))
   }
 
   render() {
-    // console.log(this.state.jobslist.data)
+    // console.log(this.state.coacheslist.data)
     return (
       <div className="App">
         <nav>
-          {/* <img className="logo" src="../images/logo.png" /> */}
           <li className='nav-li'>
             <Link to="/">home</Link>
           </li>
@@ -82,7 +74,7 @@ class App extends React.Component {
             <Link to="/search">search jobs</Link>
           </li>
           <li className='nav-li'>
-            <Link to="/coachsearch">find career coach</Link>
+            <Link to="/contact">contact</Link>
           </li>
         </nav>
 
@@ -91,16 +83,16 @@ class App extends React.Component {
           {/* <h3>find a dev job near you</h3> */}
         </header>
         <main>
-          <Input
+          <Coachinput
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit} />
-          <Route path="/coachsearch" component={Careercoach} />
+          {/* <Route path="/contact" component={Contact} /> */}
           {
             this.state.isLoading ?
               <Loader />
-              : <Route path={`/search/:search`} render={(props) =>
-                <Jobsearch
-                  jobslist={this.state.jobslist}
+              : <Route path={`/coachsearch/:coachsearch`} render={(props) =>
+                <Coachsearch
+                  coacheslist={this.state.coacheslist}
                   onChange={this.handleChange}
                   onSubmit={this.handleSubmit}
                   //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
@@ -118,4 +110,4 @@ class App extends React.Component {
 }
 
 
-export default withRouter(App);
+export default withRouter(Careercoach);

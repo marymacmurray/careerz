@@ -1,25 +1,25 @@
 import React from 'react'
 
-function Jobdisplay(props) {
+function Coachdisplay(props) {
   // console.log(props)
 
   return (
     <li className="job">
-      <div className="job-url">
+      <div>
         <a href={props.url} target="_blank" rel="noopener noreferrer">{props.title}</a>
       </div>
-      <div className="job-company">
+      <div>
         <h3>{props.company}</h3>
       </div>
-      <div className="job-logo">
-        <img src={props.logo ? props.logo : `http://t0.gstatic.com/images?q=tbn%3AANd9GcS9N47t1VWQzdybFyeev92AUmNIt5ge7Ej_6aZFDvEknzQoK2KnnOJzRJmm5EZfbvGoUM985A50&usqp=CAc`} height="50 vh" width="100 vh" />
+      <div>
+        <img src={props.logo} alt="no logo" height="50 vh" width="100 vh" />
       </div>
 
       {/* conditional rendering of button for each 'cycle' of the .map of jobslist.  Each button has to be independent so the source of the showmore prop must be created in jobsearch.  See that component for more notes. */}
-      <button className="show-more-button"
+      <button
         onClick={() => props.toggleShowmore(props.index)}
       >{props.showmore ? 'show less' : 'show more'}</button>
-      {props.showmore ? <div className="job-description">
+      {props.showmore ? <div>
         <p>job description: </p>
         <p dangerouslySetInnerHTML={{ __html: props.description }} />
       </div>
@@ -29,4 +29,4 @@ function Jobdisplay(props) {
   )
 }
 
-export default Jobdisplay
+export default Coachdisplay
