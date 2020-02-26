@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Home from './components/Home'
 import axios from 'axios'
 import Jobsearch from './components/jobsearch'
 import Loader from './components/loader';
 import Input from './components/Input'
+import NotFound from './components/NotFound';
 import { Link, Route, withRouter, Switch } from 'react-router-dom'
 
 //withRouter permits the use of router props pretty much anywhere. WOWEE!
@@ -17,10 +17,6 @@ class App extends React.Component {
       value: '',
       isLoading: false
     }
-  }
-
-  componentDidMount() {
-    alert(`Welcome to devJobz!  Search for a dev job by language, location, keyword, anything you desire!`)
   }
 
   fetchJobs = async (inputValue) => {
@@ -95,8 +91,8 @@ class App extends React.Component {
         </header>
 
         <main>
-          <Route path={'/something'}>
-            <h1>Hello</h1>
+          <Route exact path={'/'}>
+            <Loader />
           </Route>
           <Route path={`/search`} render={(props) =>
             <Input
@@ -116,7 +112,6 @@ class App extends React.Component {
               //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
               toggleShowmore={this.toggleShowmore} />}
           />
-
 
         </main>
 

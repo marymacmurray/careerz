@@ -2,9 +2,9 @@ import React from 'react'
 import Jobdisplay from './jobdisplay'
 
 function Jobsearch(props) {
-  // console.log(props.jobslist)
   const jobslist = props.jobslist;
   const listJobs =
+    //if it's not an empty array and isLoading is false (which happens in state when the data comes back from the axios call), then map through the array.
     jobslist.length > 0 && !props.isLoading ?
       jobslist.map((job, index) =>
         <Jobdisplay
