@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Home from './components/Home'
 import axios from 'axios'
 import Jobsearch from './components/jobsearch'
 import Loader from './components/loader';
 import Input from './components/Input'
+import NotFound from './components/NotFound';
 import { Link, Route, withRouter, Switch } from 'react-router-dom'
 
 //withRouter permits the use of router props pretty much anywhere. WOWEE!
@@ -15,12 +15,8 @@ class App extends React.Component {
     this.state = {
       jobslist: [],
       value: '',
-      isLoading: true
+      isLoading: false
     }
-  }
-
-  componentDidMount() {
-    alert(`Welcome to devJobz!  Search for a dev job by language, location, keyword, anything you desire!`)
   }
 
   fetchJobs = async (inputValue) => {
@@ -41,6 +37,7 @@ class App extends React.Component {
   }
 
   toggleShowmore = (index) => {
+    //setting state for each button to be it's own button.  if you don't do this, the buttons won't be unique.
     this.setState(state => {
       state.jobslist[index].showmore = !state.jobslist[index].showmore
       return state
@@ -57,6 +54,10 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     console.log('inside App Submit')
     event.preventDefault()
+    this.setState({
+      isLoading: true,
+      jobslist: [],
+    })
     const jobsarray = await this.fetchJobs(this.state.value)
     let search = this.state.value
 
@@ -64,7 +65,9 @@ class App extends React.Component {
       jobslist: jobsarray,
       isLoading: false,
       value: ''
-    }, () => this.props.history.push(`/search/${search}`))  //to be able to send router props with my state props.
+    })
+    //to be able to send router props with my state props.
+    this.props.history.push(`/search/${search}`)
   }
 
   render() {
@@ -89,24 +92,33 @@ class App extends React.Component {
         </header>
 
         <main>
+          <Route exact path={'/'}>
+            <Loader />
+          </Route>
           <Route path={`/search`} render={(props) =>
             <Input
               {...props}
               handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit} />} />
+              handleSubmit={this.handleSubmit} />}
+          />
 
           {
-            this.state.isLoading ?
-              <Loader />
-              : <Route path={`/search/:search`} render={(props) =>
-                <Jobsearch
-                  jobslist={this.state.jobslist}
-                  onChange={this.handleChange}
-                  onSubmit={this.handleSubmit}
-                  //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
-                  toggleShowmore={this.toggleShowmore} />}
-              />
+            this.state.isLoading &&
+            <Loader />
           }
+          <Route path={`/search/:search`}
+            render={(props) =>
+              <Jobsearch
+                isLoading={this.state.isLoading}
+                jobslist={this.state.jobslist}
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
+                toggleShowmore={this.toggleShowmore}
+              />
+            }
+          />
+          {/* <Route path={`/*`} component={NotFound} /> */}
 
         </main>
 

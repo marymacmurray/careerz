@@ -60,8 +60,15 @@ nav{
 
 .nav-li{
   margin: 3vh 3vw;
-  
+  border-radius: 25px;
+  padding:1vh;
 }
+
+.nav-li:hover{
+  background:  #129bbd3a;
+  color:darkblue;
+}
+
 
 .App-header {
   /* width: 100%; */
@@ -92,6 +99,9 @@ margin: 10vh auto;
   margin: 3vh;
   padding:2vh;
 }
+.job:hover{
+  background: #129bbd3a;
+}
 
 .job-url{
 width: 30%;
@@ -99,7 +109,7 @@ padding: 2px;
 }
 
 a:hover{
-    color: hotpink;
+    /* color: hotpink; */
     text-decoration: underline;
 }
 
@@ -115,36 +125,33 @@ padding: 2px;
 }
 
 @media (max-width: 700px) {      
-      .job-url{
-        width: 30%;
-        margin: 0 2vh;
-        padding: 3px;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-url{
+    width: 30%;
+    margin: 0 2vh;
+    padding: 3px;
+    padding: 2px;
+    min-width: 33.3%; 
+  }
     
-      .job-company{
-        width:25%;
-        text-align: center;
-        margin: 0 1vw;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-company{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 33.3%; 
+    }
     
-      .job-logo{
-        width:25%;
-        text-align: center;
-        margin: 0 1vw;
-        padding: 2px;
-        min-width: 33.3%; 
-        }
+  .job-logo{
+    width:25%;
+    text-align: center;
+    margin: 0 1vw;
+    padding: 2px;
+    min-width: 33.3%; 
+    }
     
 }
 
 @media screen and (max-width: 480px) {
-  .sweet-loading{
-background-color: greenyellow;
-  }
 
   .job-url{
     width: 30%;
