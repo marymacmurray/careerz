@@ -83,7 +83,7 @@ class App extends React.Component {
             <Link to="/search">search jobs</Link>
           </li>
           <li className='nav-li'>
-            <Link to="/coachsearch">find career coach</Link>
+            <a href="https://www.themuse.com/coaches?coach_specializations=Engineering%2FTech&coach_levels=Mentor&filter=true" target="_blank">find career coach</a>
           </li>
         </nav>
         <header className="App-header">
