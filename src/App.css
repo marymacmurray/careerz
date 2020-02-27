@@ -123,6 +123,10 @@ width:25%;
 text-align: center;
 padding: 2px;
 }
+.job-description{
+  text-align: left;
+  padding: 1vh 1vw;
+}
 
 @media (max-width: 700px) {      
   .job-url{
@@ -147,6 +151,11 @@ padding: 2px;
     margin: 0 1vw;
     padding: 2px;
     min-width: 33.3%; 
+    }
+
+  .job-description{
+    text-align: left;
+    padding: 1vh 1vw;
     }
     
 }
@@ -174,6 +183,11 @@ padding: 2px;
     margin: 0 1vw;
     padding: 2px;
     min-width: 40%; 
+    }
+    
+  .job-description{
+    text-align: left;
+    padding: 1vh 1vw;
     }
 
 }

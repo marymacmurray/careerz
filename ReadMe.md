@@ -1,4 +1,4 @@
-# [devJobz](http://my-project-title.surge.sh/)
+# [devJobz](https://marymacmurray-devjobz.netlify.com/)
 
 ![Mandalorians 4ever](https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif)
 

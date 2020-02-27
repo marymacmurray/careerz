@@ -36,6 +36,12 @@ class App extends React.Component {
     }
   }
 
+  //::::WIP:::email a single job to someone.
+  // handleEmailSubmit = (index) => {
+
+  // }
+
+
   toggleShowmore = (index) => {
     //setting state for each button to be it's own button.  if you don't do this, the buttons won't be unique.
     this.setState(state => {
@@ -116,6 +122,11 @@ class App extends React.Component {
                 //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
                 toggleShowmore={this.toggleShowmore}
               />
+
+
+              //::::WIP::::EMAIL HANDLING
+              // onSubmit={this.handleEmailSubmit}
+
             }
           />
 
