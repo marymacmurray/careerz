@@ -22,10 +22,7 @@ function Input(props) {
         <button
           type="submit"
           onClick={props.handleSubmit}>git</button>
-        {/* email form submitbutton */}
-        {/* <button
-          type="submit"
-          onClick={handleSubmit}>email</button> */}
+
       </form>
     </div>
 
