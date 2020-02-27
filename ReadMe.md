@@ -3,11 +3,11 @@
 ![Mandalorians 4ever](https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif)
 
 ## MVP 
-Search developer jobs in your area.  Send your search results to yourself or a friend via email.
+Search developer jobs in your area.  
 
 ## Wireframe
 
-![wireframe](planning/careerz_wireframe.png)
+![wireframe](planning/devJobz_wireframe.png)
 
 
 ## Component Hierarchy 
@@ -38,7 +38,6 @@ src/
 
 ## Goals 
 MUST HAVE: Search developer jobs in your area.
-Should have: Email modal to send results to yourself or a friend.
 
 Functional Requirements
 * Be built with HTML, CSS, JavaScript, and use React as my front-end framework.
@@ -54,9 +53,9 @@ Procedural Requirements
 
 ## POST-MVP Goals:
 
-* Could have: Career coach search component using TheMuse API. https://www.themuse.com/developers/api/v2* 
+* Could have: Career coach search component using TheMuse API. https://www.themuse.com/developers/api/v2  This API stunk, 500 server errors every other call for career coach search.
 * Try out this component library: https://github.com/OfficeDev/office-ui-fabric-react. 
-
+* Send a search result to yourself or a friend via email.
 
 
 ## SWOT Analysis 
