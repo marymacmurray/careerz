@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import Loader from './loader';
+import Loader from '../components/loader';
 import Coachinput from './coachinput'
 import Coachsearch from './coachsearch'
 import { Switch, Link, Route, withRouter } from 'react-router-dom'

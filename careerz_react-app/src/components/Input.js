@@ -2,6 +2,14 @@ import React from 'react'
 
 function Input(props) {
   // console.log(props)
+
+
+  //email form handleSubmit
+  // handleSubmit = async (event) => {
+  //   console.log('inside Email handleSubmit')
+  //   event.preventDefault()
+  // }
+
   return (
     <div>
       <form>
@@ -14,8 +22,11 @@ function Input(props) {
         <button
           type="submit"
           onClick={props.handleSubmit}>git</button>
+        {/* email form submitbutton */}
+        {/* <button
+          type="submit"
+          onClick={handleSubmit}>email</button> */}
       </form>
-
     </div>
 
   )
