@@ -24,7 +24,7 @@ class Loader extends React.Component {
       <div className="sweet-loading">
         <PacmanLoader
           css={override}
-          size={150}
+          size={100}
           //size={"150px"} this also works
           color={"pink"}
           loading={this.state.loading}
