@@ -58,11 +58,11 @@ Procedural Requirements
 
 | Strengths  | Weaknesses |
 | --- | --- |
-| basic react component lifecycle and setting state  | algorithm planning  |
+| react component lifecycle and setting state, css is strong  | algorithm planning  |
 
 | Opportunities | Threats |
 | --- | --- |
-| using component library for styling | component lib research time/effort  |
+| using component library | API for The Muse stinks  |
 
 
 ## Technologies Used
