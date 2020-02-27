@@ -71,11 +71,10 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.jobslist.data)
+
     return (
       <div className="App">
         <nav>
-          {/* <img className="logo" src="../images/logo.png" /> */}
           <li className='nav-li'>
             <Link to="/">home</Link>
           </li>
@@ -92,6 +91,7 @@ class App extends React.Component {
         </header>
 
         <main>
+
           <Route exact path={'/'}>
             <Loader />
           </Route>
@@ -118,6 +118,7 @@ class App extends React.Component {
               />
             }
           />
+
           {/* <Route path={`/*`} component={NotFound} /> */}
 
         </main>
