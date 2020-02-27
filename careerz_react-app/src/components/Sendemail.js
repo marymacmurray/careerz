@@ -1,6 +1,5 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
-
 import '../ContactUs.css';
 
 export default function ContactUs() {
@@ -8,7 +7,7 @@ export default function ContactUs() {
   function sendEmail(event) {
     event.preventDefault();
 
-    emailjs.sendForm('default_service', 'test_template', event.target, 'YOUR_USER_ID')
+    emailjs.sendForm('default_service', 'test_template', event.target, 'user_y5BPx19tRS2yJSFCwMUuk')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
