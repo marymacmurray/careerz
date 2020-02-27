@@ -11,21 +11,17 @@ Search developer jobs in your area.
 
 
 ## Component Hierarchy 
-![component sketch](planning/careerz-component-map.jpg)
+
 ```
 src/
-|__ App.css
-|__ index.css
 |__ index.js
 |__ App.js  (axios call, state: jobslist: [], value: '', isLoading: true)
 |__ components/
-      |__ loader.js (cool loader dude: https://www.npmjs.com/package/react-spinners)
+      |__ loader.js (cool loader, dude: https://www.npmjs.com/package/react-spinners)
       |__ Input.js (reusable form function)
       |__ jobsearch.js (.map of axios data)
       |__ jobdisplay.js (display of mapped data and 'showmore' buttons) 
-|__ images/
-    |__ babyyoda.png
-    |__ logo.png
+
 ```
 
 #### Data
@@ -81,5 +77,6 @@ Procedural Requirements
 
 #### WIP
 * Refactoring main button/input/props components to be reusable for both the Coachsearch components and Jobsearch components.
+* Emailjs finaggling.
 * Review by UXD professionals.
 
