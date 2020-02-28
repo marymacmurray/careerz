@@ -19,7 +19,7 @@ function Jobdisplay(props) {
         onClick={() => props.toggleShowmore(props.index)}
       >{props.showmore ? 'show less' : 'show more'}</button>
       {props.showmore ? <div className="job-description">
-        <p>job description: </p>
+        <p>Job Description: </p>
         <p dangerouslySetInnerHTML={{ __html: props.description }} />
         {/* had to use dsihtml here since the descriptions were coming back with html elements in them.  removing them would take away all the formatting the client desired to show in their job description, so instead of slice or replace, i chose to do this. */}
       </div>
