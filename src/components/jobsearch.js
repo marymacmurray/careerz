@@ -18,10 +18,10 @@ function Jobsearch(props) {
           url={job.url}
           apply={job.how_to_apply}
           description={job.description}
-          //need an index to make each of the functions connected to the buttons individual and specific to that div.
+          //need an index to make each of the toggleShowmore functions connected to that particular button.
           index={index}
           toggleShowmore={props.toggleShowmore}
-          //here we create a prop showmore to be passed to the jobsdisplay render.
+          //prop showmore to be passed to the jobsdisplay render.
           showmore={job.showmore}
         />
       ) : <h2 className="no-results">No Results</h2>

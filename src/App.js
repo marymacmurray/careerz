@@ -97,7 +97,7 @@ class App extends React.Component {
         </header>
 
         <main>
-
+          {/* showing loader on home screen */}
           <Route exact path={'/'}>
             <Loader />
           </Route>

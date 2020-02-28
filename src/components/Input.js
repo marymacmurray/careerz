@@ -1,9 +1,8 @@
 import React from 'react'
 
 function Input(props) {
-  // console.log(props)
 
-
+  //:::::WIP:::::
   //email form handleSubmit
   // handleSubmit = async (event) => {
   //   console.log('inside Email handleSubmit')

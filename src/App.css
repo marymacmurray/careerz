@@ -98,6 +98,7 @@ margin: 10vh auto;
   box-shadow:10px 10px 5px grey;
   margin: 3vh;
   padding:2vh;
+  border-radius: 25px;
 }
 .job:hover{
   background: #129bbd3a;
