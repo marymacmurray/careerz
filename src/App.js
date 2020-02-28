@@ -101,31 +101,35 @@ class App extends React.Component {
           <Route exact path={'/'}>
             <Loader />
           </Route>
-          <Route path={`/search`} render={(props) =>
-            <Input
-              {...props}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit} />}
+          <Route
+            path={`/search`}
+            render={(props) =>
+              <Input
+                {...props}  //router props.
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+              />
+            }
           />
 
           {
             this.state.isLoading &&
             <Loader />
           }
-          <Route path={`/search/:search`}
+          <Route
+            path={`/search/:search`}
             render={(props) =>
               <Jobsearch
-                isLoading={this.state.isLoading}
+                isLoading={this.state.isLoading}  //have to pass as props so that "no results" ternary can function.
                 jobslist={this.state.jobslist}
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
                 //passing toggleShowmore down as props.  This ternary checks if the axios data is back, see the axios call where we put isLoading into state.  You could accomplish the same thing with a .catch/.then as well.
                 toggleShowmore={this.toggleShowmore}
-              />
-
 
               //::::WIP::::EMAIL HANDLING
               // onSubmit={this.handleEmailSubmit}
+              />
 
             }
           />
